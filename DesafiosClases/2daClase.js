@@ -1,5 +1,4 @@
 //1)
-let lista= ["La Parra Handball", "Sedalo", "Ferro", "River", "CID Moreno"]
 function mostrarLista(lista) {
     if(lista.length != 0){
         console.log(lista)
@@ -7,9 +6,10 @@ function mostrarLista(lista) {
         console.log("Lista vacía")
     }
 }
+let lista= ["La Parra Handball", "Sedalo", "Ferro", "River", "CID Moreno"]
 mostrarLista ()
 
-let listaVacia= []
+
 function mostrarListaVacia(listaVacia) {
     if (listaVacia.length = 0) {
         console.log("Lista vacía")
@@ -17,6 +17,7 @@ function mostrarListaVacia(listaVacia) {
         console.log(lista)
     }
 }
+let listaVacia= []
 mostrarListaVacia ()
 
 //2)
@@ -73,7 +74,7 @@ let triplicar = crearMultiplicador(3); //Crea función
 console.log(triplicar(3)); // 9
 console.log(triplicar(4)); // 9
 
-//Ejercicio Clases Slide 38
+//Ejercicio Clases Slide 38, mi resuelto
 
 class Contador {
  constructor (responsable, cuentaIndividual, cuentaGlobal, contador){
@@ -83,8 +84,7 @@ class Contador {
     this.contador= contador
  }
 
-static cuentaIndividual = 0
-static cuentaGlobal = 0
+static cuentaTotal = 0
 
 //4)    Definir un método obtenerResponsable que devuelva el nombre del responsable de la instancia.
 obtenerResponsable (){
@@ -94,16 +94,63 @@ obtenerResponsable (){
 obtenerCuentaIndividual(){
     console.log(`${this.cuentaIndividual}`)
 }
-
 //6)    Definir un método obtenerCuentaGlobal que devuelva la cantidad contada por todos los contadores creados hasta el momento.
 obtenerCuentaGlobal(){
-    console.log(`${this.cuentaGlobal}`)
+    console.log(`${Contador.cuentaTotal}`)
 }
-
 //7)    Definir el método contar que incremente en uno tanto la cuenta individual como la cuenta general
 contar(){
     cuentaIndividual++
     cuentaGlobal++ 
 }
-
 }
+
+//----------------------------- Resolución en clase CORREGIDO ---------------------------//
+class Contador {
+    constructor (responsable){ //construye la instancia del objeto
+    this.responsable= responsable
+    this.cuentaIndividual= 0
+}
+static cuentaTotal = 0 //propiedad de la clase que comparten todos los objetos creados en el new
+
+//4)    Definir un método obtenerResponsable que devuelva el nombre del responsable de la instancia.
+obtenerResponsable (){
+    return `${this.responsable}`
+}
+//5)    Definir un método obtenerCuentaIndividual que devuelva la cantidad contada por la instancia.
+obtenerCuentaIndividual(){
+     return `${this.cuentaIndividual}`
+}
+//6)    Definir un método obtenerCuentaGlobal que devuelva la cantidad contada por todos los contadores creados hasta el momento.
+obtenerCuentaGlobal(){
+     return `${Contador.cuentaTotal}`//muestra el valor de la clase
+}
+//7)    Definir el método contar que incremente en uno tanto la cuenta individual como la cuenta general
+contar(){
+    this.cuentaIndividual++
+    Contador.cuentaTotal++ //acceden todas las instancias del new porque es una propiedad de la clase
+}
+}
+
+// Objetos que pertenecen a la clase Contador, crear instancias/objetos que cumple con los requisitos
+let maria = new Contador ('Maria')
+let jose = new Contador ('Jose')
+
+maria.contar()
+maria.contar()
+maria.contar()
+jose.contar()
+
+let obtenerCuentas = (responsable) => {//le pasa un objeto? 
+    return `Responsable: ${responsable.obtenerResponsable ()}/
+    Cuenta Individual: ${responsable.obtenerCuentaIndividual ()}/
+    Cuenta Total: ${responsable.obtenerCuentaGlobal ()} `
+}
+
+console.log(obtenerCuentas(maria)) //atributo del objeto
+console.log(obtenerCuentas(jose)) //atributo del objeto
+console.log(Contador.cuentaTotal) //atributo estatico de la clase, no nec un obj/instancia de una clase para acceder
+//Muestra 
+//Maria 3 4
+//Jose 1 4 
+//4
