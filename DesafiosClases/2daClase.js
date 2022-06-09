@@ -33,7 +33,7 @@ function crearMultiplicador (numero1) {
 
 crearMultiplicador ();
 console.log (((crearDuplicar) => crearMultiplicador * 2 ))
-console.log (((crearTriplicar) => crearMultiplicador* 3 ))
+console.log (((crearTriplicar) => crearMultiplicador * 3 ))
 
 /*Resoluciones en clase*/
 // // Punto 1
@@ -59,6 +59,7 @@ console.log (((crearTriplicar) => crearMultiplicador* 3 ))
 // }) ([1,2,3]);
 
 // Punto 3
+
 function crearMultiplicador (numero) {
     let numero_interno = numero;
     return function(numero2) {
@@ -77,10 +78,9 @@ console.log(triplicar(4)); // 9
 //Ejercicio Clases Slide 38, mi resuelto
 
 class Contador {
- constructor (responsable, cuentaIndividual, cuentaGlobal, contador){
+ constructor (responsable, cuentaIndividual, contador){
     this.responsable= responsable
     this.cuentaIndividual= cuentaIndividual
-    this.cuentaGlobal= cuentaGlobal
     this.contador= contador
  }
 
@@ -111,7 +111,7 @@ class Contador {
     this.responsable= responsable
     this.cuentaIndividual= 0
 }
-static cuentaTotal = 0 //propiedad de la clase que comparten todos los objetos creados en el new
+static cuentaTotal = 0 //propiedad de la clase Contador que comparten todos los instancias/objetos creados en el new
 
 //4)    Definir un método obtenerResponsable que devuelva el nombre del responsable de la instancia.
 obtenerResponsable (){
@@ -132,7 +132,7 @@ contar(){
 }
 }
 
-// Objetos que pertenecen a la clase Contador, crear instancias/objetos que cumple con los requisitos
+// Objetos que pertenecen a la clase Contador, NEW: crear instancias/objetos que cumple con los requisitos, le pasamos argumentos
 let maria = new Contador ('Maria')
 let jose = new Contador ('Jose')
 
@@ -141,16 +141,16 @@ maria.contar()
 maria.contar()
 jose.contar()
 
-let obtenerCuentas = (responsable) => {//le pasa un objeto? 
+let obtenerCuentas = (responsable) => {//llama a los distintos metodos, dentro de los objetos de la clase
     return `Responsable: ${responsable.obtenerResponsable ()}/
     Cuenta Individual: ${responsable.obtenerCuentaIndividual ()}/
     Cuenta Total: ${responsable.obtenerCuentaGlobal ()} `
 }
 
-console.log(obtenerCuentas(maria)) //atributo del objeto
-console.log(obtenerCuentas(jose)) //atributo del objeto
-console.log(Contador.cuentaTotal) //atributo estatico de la clase, no nec un obj/instancia de una clase para acceder
-//Muestra 
-//Maria 3 4
-//Jose 1 4 
+console.log (obtenerCuentas(maria)) //atributo del objeto
+console.log (obtenerCuentas(jose)) //atributo del objeto
+console.log (Contador.cuentaTotal) //atributo estatico de la clase, no nec un obj/instancia de una clase para acceder
+//Estos console muestran: 
+//Responsable: Maria/Cuenta ind 3/Cuenta Total: 4 
+//Responsable: Jose/Cuenta ind 1/Cuenta Total: 4 
 //4

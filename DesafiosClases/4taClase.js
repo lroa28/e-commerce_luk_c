@@ -28,7 +28,7 @@ function mostrar(letters) {
 }
 
 mostrar("Hola");
-//En esta version aparecen las letras cada segundo una por vez
+//En esta versión aparecen las letras cada segundo una por vez
 
 function mostrarUnaLetra(letters, from) {
     let aLetter = letters.substr(from, 1);
@@ -67,10 +67,6 @@ C) Incluya el manejo de errores con try catch (progresando las excepciones con t
 Aclaración: utilizar las funciones sincrónicas de lectura y escritura de archivos del módulo fs de node.js*/
 
 
-//En esta version que seria mas escalable para una gran cantidad de letras se presenta un unico delay y las letras se muestran todas de golpe
-
-//Como hacer que la segunda version se comporte como la primera?
-
 
 //---------- SLIDE #52 Lectura y escritura de archivos --------//
 /*Escribir un programa ejecutable bajo node.js que realice las siguientes acciones:
@@ -87,7 +83,7 @@ Aclaraciones:
 - Consigna C): Para serializar un objeto (convertirlo a string) y guardarlo en un archivo utilizar JSON.stringify.
 
 Ayuda:
-Para el Punto 3 considerar usar JSON.stringify(info, null, 2) para preservar el formato de representación del objeto en el archivo (2 representa en este caso la cantidad de espacios de indentación usadas al representar el objeto como string).
+Para el Punto C considerar usar JSON.stringify(info, null, 2) para preservar el formato de representación del objeto en el archivo (2 representa en este caso la cantidad de espacios de indentación usadas al representar el objeto como string).
 En la diapositiva 54 tienen una forma para que el formato dentro del archivo sea "fácilmente legible", en el JSON.stringify dben pasarle unos parámetros más
 Ejemplo: JSON.stringify(arrayDeDatos, null, 2)
 tengo duda con el ID, por ejemplo, si decidimos eliminar el ID 1 y ya tenemos otros 3 productos hasta el ID 4, el siguiente producto que agreguemos debe adquirir el número del ID 1 o puede continuar aumentando a pesar de que hayamos perdido el ID 1?
@@ -109,3 +105,23 @@ Trabajar con fs.promises (then/catch).
 Ayuda:
 Para el punto 3 considerar usar JSON.stringify(info.contenidoObj, null,2) para preservar el formato de representación del objeto en el archivo.*/
 
+function escribirYLoguear(texto, callbackLog) {
+    // Función que escribe a un archivo el texto dado
+    console.log(texto)
+    // Se ejecuta el callback
+    callbackLog('escrito con éxito')
+}
+
+const logger = (mensaje) => {
+    const fecha = new Date().toLocaleTimeString()
+    console.log(`${fecha}: ${mensaje}`)
+}
+
+const loggerSinFecha = (mensaje) => {
+    const fecha = new Date().toLocaleTimeString()
+    console.log(`${mensaje}`)
+}
+
+escribirYLoguear("Yo soy Andrés", logger)
+escribirYLoguear("Tengo 32 años", loggerSinFecha)
+escribirYLoguear("Me gusta dragon ball", logger)
