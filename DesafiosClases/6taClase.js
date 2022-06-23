@@ -12,12 +12,28 @@ Se mostrará por consola cuando el servidor esté listo para operar y en qué pu
 */
 
 /*
-Crear un servidor=
-*/
+
 const http= require ('http')
 
+const server = http.createServer((peticion, respuesta) => {
+  let date = new Date(Date.now());
+  let hour = date.getHours();
+  
+  if (hour >= 6 && hour < 13) {
+    respuesta.end('Buenos días!');
+  } else if (hour >= 13 && hour < 20) {
+    respuesta.end('Buenas tardes!');
+  } else {
+    respuesta.end('Buenas noches!');
+  }
+});
 
-
+const connectedServer = server.listen(8080, () => {
+  console.log(
+    `Servidor HTTP escuchando en el puerto ${connectedServer.address().port}`
+  );
+});
+*/
 
 //Ejercicio 2
 /* Servidor con express= Crear un proyecto de servidor http en node.js que utilice la dependencia express
@@ -29,3 +45,38 @@ C) '/fyh' donde se devolverá la fecha y hora actual en formato objeto:
 
 Mostrar por consola el puerto de escucha del servidor al momento de realizar el listen. En caso de error, representar el detalle.
 */
+
+const express = require("express")
+const app = express()
+
+const PORT = 8080
+let counter = 0
+
+const server = app.listen(PORT, () => {
+   console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
+})
+server.on("error", error => console.log(`Error en servidor ${error}`))
+
+// RUTAS
+app.get('/', (req, res) => {
+    res.send("<h1>Bienvenidos al server express</h1>");
+ })
+
+app.get('/visitas', (req, res) => {
+    counter++;
+    res.send("La cantidad de visitas es: "+counter);
+ })
+ 
+app.get('/fyh', (req, res) => {
+    let fecha = new Date()
+    let fecha_formateada = 
+        fecha.getFullYear()+"-"
+        +(fecha.getMonth()+1)+"-"
+        +fecha.getDate()+" "
+        +fecha.getHours()+":"
+        +fecha.getMinutes()+":"
+        +fecha.getSeconds();
+    res.send({fyh: fecha_formateada});
+ })
+ 
+ //http://localhost:8080

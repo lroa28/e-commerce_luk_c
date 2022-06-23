@@ -29,3 +29,15 @@ por
 */
 
 // Comienzo a usar los métodos de la libreria moment= https://www.npmjs.com/package/moment
+// https://drive.google.com/drive/u/0/folders/1fxXFJTsZnzHcSOpWLeDKRlYQRjcdExdD. Archivo exercise01.js
+
+var moment = require('moment') //dependencia moment de node.js
+
+const nacimiento = moment("28/10/1982", "DD/MM/YYYY")
+const now = moment()
+//console.log(moment.from(nacimiento).format("d/M/YYYY"))
+
+console.log("Hoy es " + now.format('DD/MM/YYYY')) 
+console.log("Nací el " + nacimiento.format("DD/MM/YYYY"))
+console.log("Desde mi nacimiento han pasado " + now.diff(nacimiento, 'years') + "años")
+console.log("Desde mi nacimiento han pasado " + now.diff(nacimiento, 'days') + "días")
