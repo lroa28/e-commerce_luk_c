@@ -1,13 +1,15 @@
 class api {
 
-    productos = [];
+    constructor() {
+        this.productos = []; // inicializa un array en 0
+    }
     
-//  Agregar un producto
+ //  agregar un producto
     add(producto) {
          this.productos.push(producto);
       }
  
-// Asignar una id a un producto.
+ // asignar una id a un producto.
  
      getId() {
          return this.productos.length > 0 ? this.productos[this.productos.length - 1].id + 1 : 1;
@@ -26,7 +28,6 @@ class api {
      getAll() {
          return this.productos;
      }
-     
  // update de un producto segun su id
      update(id, producto) {
          const index = this.productos.findIndex(producto => producto.id === id);
