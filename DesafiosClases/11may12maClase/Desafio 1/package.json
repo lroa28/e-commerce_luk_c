@@ -1,0 +1,18 @@
+{
+  "type": "commonjs",
+  "name": "sockets",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Coderhouse",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.18",
+    "socket.io": "^3.1.2"
+  },
+  "description": ""
+}
