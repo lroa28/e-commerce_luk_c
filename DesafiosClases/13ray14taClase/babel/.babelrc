@@ -1,4 +1,5 @@
+//fichero de configuración de Babel “.babelrc” y con el plugin vamos a trabajar
+
 {
     "presets": ["@babel/preset-env"]
- }
- 
+}

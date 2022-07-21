@@ -1,0 +1,35 @@
+1- COLOR ALEATORIO CON BABEL
+
+Realizar un programa que genere un color aleatorio en formato RGB (canal rojo, verde y azul entre 0 y 255) y 
+lo muestre por consola. Este estará implementado en un archivo llamado color.js 
+La funcionalidad debe estar implementada dentro de una clase y deberá utilizar sintaxis ES6 
+(const, let, arrow function y template string).
+Convertir este código ES6 a JS5 con Babel online. Realizar esta conversión en forma automática dentro de un 
+proyecto node.js que utilice Babel CLI
+
+2- COLOR ALEATORIO CON TSC
+
+Realizar un proyecto TypeScript node.js que genere un color aleatorio en formato RGB (canal rojo, verde y azul entre 0 y 255) y lo muestre por consola.
+La funcionalidad debe estar implementada dentro de una clase en un archivo color.ts y deberá utilizar sintaxis Typescript tipada. 
+El proyecto deberá convertir este código TS a JS5 en forma automática con TSC CLI
+
+3- MENSAJERÍA CON WEBPACK
+
+Crear tres archivos javascript que contengan una variable por cada archivo llamadas mensaje1, mensaje2 y mensaje3 respectivamente. 
+En cada archivo, cargar la variable con un frase y representarla en consola luego de:
+Un segundo para el caso del mensaje 1.
+Dos segundos para el mensaje 2. 
+Tres segundos para el mensaje 3.
+Crear un proyecto que permita utilizar webpack como dependencia de desarrollo para empaquetar los tres archivos en uno sólo.
+Escribir el script correspondiente para ejecutar el proceso automático, generando la versión de producción del proyecto.
+
+4- WEBPACK CON TypeScriptSamples
+PERÍMETRO Y SUPERFICIE
+
+Crear un proyecto basado en Webpack y Typescript que implemente un servidor node express cuyo punto de entrada será server.ts.
+Se implementará una clase llamada Perimetro que contenga tres métodos estáticos para calcular el perímetro de un cuadrado, un rectángulo y un círculo. Esta clase se guardará en un archivo llamado perimetro.ts 
+En otro archivo llamado superficie.ts se implementará una clase llamada Superficie que contenga tres métodos estáticos para calcular la superficie de las mismas tres figuras.
+Los dos módulos se importarán en server.js.
+Realizar los endpoints get que permitan recibir las peticiones de cálculo con los parámetros correspondientes. La respuesta será en formato objeto y representará el tipo de cálculo, la figura, los parámetros de entrada y el resultado.
+Implementar el tipado en todas las clases y funciones del servidor.
+Probar con el navegador ó cliente http todas las posibles variantes.
