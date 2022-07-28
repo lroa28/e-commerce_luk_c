@@ -1,14 +1,23 @@
 CRUD
 
 Utilizando Mongo shell, realizar las siguientes acciones:
+
 Crear una base de datos en MongoDB llamada 'empresa'.
+
 Crear una colección llamada 'clientes' dentro de esa base.
+
 Insertar un documento en la colección clientes que contenga los campos ‘nombre’ y ‘edad’.
+
 Insertar un array de tres documentos con el mismo formato y valores distintos en la 
 colección clientes (modo bulk).
+
 Utilizando un sólo comando, crear una colección llamada 'articulos' e insertar dentro de ella 
 un array de cuatro documentos con los campos ‘nombre’, ‘precio’ y ‘stock’.
+
 Mostrar las colecciones de la base 'empresa'.
+
 Listar todos los documentos dentro de cada una de las colecciones.
+
 Tomar el Object ID de uno de los documentos y comprobar fecha y hora de creación.
+
 Mostrar la cantidad de documentos que tiene la colección articulos.
