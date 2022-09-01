@@ -1,6 +1,7 @@
 Random array
 
-1 Desarrollar un servidor basado en Node.js y express que para la ruta '/test' responda con un array de 10 objetos, 
+1 Desarrollar un servidor basado en Node.js y express que para la ruta '/test' responda con un array 
+de 10 objetos, 
 con el siguiente formato:
 {
     nombre: '',
