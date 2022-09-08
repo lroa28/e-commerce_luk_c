@@ -20,7 +20,6 @@ fs.writeFile ( './test.csv' , str, function ( err ) {
 })
 */ 
 
-
 import faker from 'faker'
 faker.locale = 'es'
 const { name, internet, random } = faker
