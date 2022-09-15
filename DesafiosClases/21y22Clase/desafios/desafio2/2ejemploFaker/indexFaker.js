@@ -25,8 +25,10 @@ faker.locale = 'es'
 const { name, internet, random } = faker
 import { writeFile } from 'fs'
 
-let str = 'NOMBRE;APELLIDO;EMAIL;TRABAJO;LUGAR\n'
+//headers
+let str = 'NOMBRE;APELLIDO;EMAIL;TRABAJO;LUGAR'
 
+//Creamos valores, 100 veces 
 for (let i = 0; i < 100; i++) {
    str += name.firstName() +
        ';' + name.lastName() +
@@ -36,7 +38,9 @@ for (let i = 0; i < 100; i++) {
        '\n'
 }
 
+//Se puede enviar como rta de un servidor
 writeFile('./test.csv', str, err => {
-   if (err) console.log(err);
+    //callback del error
+   if (err) return console.log(err);
    console.log('archivo guardado')
 })
