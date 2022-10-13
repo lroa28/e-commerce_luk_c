@@ -1,22 +1,23 @@
 import express from 'express';
 import session from 'express-session';
-import store from 'session-file-store';
+//import store from 'session-file-store';
 import MongoStore from 'connect-mongo';
 
 const app = express();
-const port =8080;
+const port =9090;
 const server = app.listen(port,()=>console.log(`Listening on port: ${port}`));
-const FileStore = store(session);
+//const FileStore = store(session);
 
 app.use(express.json()); //sera un middleware mas
-new FileStore({path:'./sessions',ttl:10,retries:0})
+//new FileStore({path:'./sessions',ttl:10,retries:0})
 
 app.use(session({
     //time to live
     store:MongoStore.create({
-        mongoUrl:'AQUÍ TU URL DE MONGODB ATLAS',
+        //mongoUrl:'AQUÍ TU URL DE MONGODB ATLAS',
+        mongoUrl:'mongodb+srv://lroa_luk_c:luka2107@cluster0.cjnbo.mongodb.net/?retryWrites=true&w=majority',
         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true},
-        ttl:10
+        ttl:3600
     }), 
     secret:"CoderSecretConPapas",
     resave:false, //para q la session se mantenga guardando constantemente
@@ -45,12 +46,12 @@ app.post('/register',(req,res)=>{
 
 app.post('/login',(req,res)=>{//no genera cookie
     const {email,password} = req.body;
-    //if(email==="correoPrueba@correo.com"&&password==="123"){//si entra al IF lo podemos crear
-    if(email==="admin@correo.com"&&password==="contraseñaAdmin"){//el admin no esta guardado en la base de datos solo harkordeado
+    if(email==="correoPrueba@correo.com"&&password==="123"){//si entra al IF lo podemos crear
+    //if(email==="admin@correo.com"&&password==="contraseñaAdmin"){//el admin no esta guardado en la base de datos solo harkordeado
         req.session.user = {// es un obj de request, creo el objeto{}
             email,
             password, //solo cuando creo el usuario no para el adm
-            role:"admin"
+            //role:"admin"
         }
         res.send("Logueado :)");
     }

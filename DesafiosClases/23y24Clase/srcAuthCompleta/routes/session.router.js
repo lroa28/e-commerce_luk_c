@@ -3,6 +3,7 @@ import userService from "../models/Users.js";
 
 const router = Router();
 
+//Conectar a la base de datos
 router.post('/register',async (req,res)=>{
     const {first_name,last_name,email,age,password} =req.body;
     if(!first_name||!last_name||!email||!password) return res.status(400).send({error:"Incomplete values"})
@@ -13,22 +14,24 @@ router.post('/register',async (req,res)=>{
         age:age,
         password
     }
+    //si o si cachear para que no se caiga la base de datos
     try{
-        const result = await userService.create(user);
-        res.send({status:'success',payload:result})
+        const result = await userService.create(user);//crea el usuario
+        res.send({status:'success',payload:result})//devuelve el rdo
     }catch(error){
         res.status(500).send({error:error})
     }
 })
 
-router.post('/login',async(req,res)=>{
+
+router.post('/login',async(req,res)=>{//logica de registro a la base de datos
     console.log(req.body);
     try{
         const {email,password} = req.body;
         if(!email||!password) return res.status(400).send({error:"Incomplete values"})
         const user = await userService.findOne({$and:[{email:email},{password:password}]},{first_name:1,last_name:1,email:1});
         if(!user) return res.status(400).send({error:'User not found'});
-        req.session.user = user;
+        req.session.user = user;//conectamos el usuario q encontram y lo metemos a la sesion
         res.send({status:"success",payload:user})
     }catch(error){
         res.status(500).send({error:error})
