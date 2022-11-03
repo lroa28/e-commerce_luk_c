@@ -5,6 +5,8 @@ import {fork} from 'child_process';
 const app = express();
 const PORT = config.PORT;
 
+
+// clase de fork=
 let visitas = 0;
 
 const calculoPesado = () =>{
@@ -23,6 +25,7 @@ app.get('/calculo',(req,res)=>{
     let result = calculoPesado();
     res.send(`La suma es ${result}`);
 })
+
 app.get('/calculoForkeadoDelPoder',(req,res)=>{
     const result = fork('./calculoPesado.js')
     result.send('Start process!!!!')
@@ -30,6 +33,7 @@ app.get('/calculoForkeadoDelPoder',(req,res)=>{
         res.send(`El resultado de la suma es ${val}`)
     })
 })
+
 app.get('/visitas',(req,res)=>{
     res.send(`visitado ${++visitas} veces`)
 })

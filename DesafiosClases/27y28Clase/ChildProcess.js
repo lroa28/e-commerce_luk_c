@@ -1,7 +1,7 @@
 import {exec,spawn} from 'child_process';
 
 // exec("node ./desafio2.js",(error,stdout,stderror)=>{
-//     if(error){
+//     if(error){ //si existio un error
 //         console.log(`error: ${error.message}`);
 //     }
 //     if(stderror){
@@ -14,6 +14,7 @@ import {exec,spawn} from 'child_process';
 
 const testProcess = spawn('node desafio2.js',[],{shell:true});
 
+//nec otros listenings
 testProcess.stdout.on('data',data=>{
     console.log(`stdout: ${data}`);
 })
