@@ -1,4 +1,3 @@
-SERVIDOR NODE CON CLUSTER
 Servidor Node con Cluster
 
 Tomando como base el ejercicio anterior, agregar la lógica que permita construir un cluster de servidores, poniendo un evento de escucha en cada servidor para reiniciarlo si se cae.
