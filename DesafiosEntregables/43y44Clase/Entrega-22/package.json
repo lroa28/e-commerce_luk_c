@@ -1,0 +1,15 @@
+{
+  "name": "entrega-22",
+  "version": "1.0.0",
+  "description": "## Reformar para usar GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autocannon": "^7.10.0"
+  }
+}
