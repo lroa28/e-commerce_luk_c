@@ -1,10 +1,9 @@
 import express from 'express';
 import crypto from 'crypto';
 
-
 const app = express();
 
-const users = {}
+const users = {} //objeto para guardar usuarios
 
 app.use(express.static('public'))
 const PORT = parseInt(process.argv[2]) || 8080;
@@ -19,17 +18,18 @@ app.get("/getUsers", (req, res) => {
 })
   
 app.get("/newUser", (req, res) => {
+    //envia usu y pass a partir de req.query
     let username = req.query.username || "";
     const password = req.query.password || "";
   
     username = username.replace(/[!@#$%^&*]/g, "");
   
-    if (!username || !password || users[username]) {
+    if (!username || !password || users[username]) { //recibe usu y pass y lo mete en el array pass
       return res.sendStatus(400);
     }
   
     const salt = crypto.randomBytes(128).toString("base64");
-    const hash = crypto.pbkdf2Sync(password, salt, 10000, 512, "sha512");
+    const hash = crypto.pbkdf2Sync(password, salt, 10000, 512, "sha512"); //hashea la pass, salt strings con las cules se hacen las rondas de cambios
   
     users[username] = { salt, hash };
   
