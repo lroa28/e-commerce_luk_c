@@ -1,8 +1,20 @@
-# Curso Backend - MERN Stack: Proyecto Final
-E-commerce project
+# Curso Backend - MERN: Proyecto Final
+# Lic. en sistemas de información, estudiante full stack en "CoderHouse" y emprendedora de textil.
+## Año 2022.
 
+📢 Sitio web que busca mostrar el e-commerce del curso y mi Emprendimiento de Diseño textil y de modas, próximamente podrás realizar compras de prendas en "_luk_c"
+
+Este es Último curso de Full-Stack. Backend en CoderHouse 2022.
+
+Los trabajos realizados son en Programacion web y Javascript= https://lroa28.github.io/GitLROA/
+y React Js= https://ephemeral-kelpie-08c118.netlify.app/ 
+
+## proyectoFinal-backend-MERN (posee principalmente trabajo de backend)
+##  proyectoFinal-fullstack-MERN (pensado y programado con trabajo de backend y frontend)
+
+
+Detalles que aplican a ambos=
 ## **Endpoints**
-
 **MAIN ROUTE = /api**
 
 ### MAIN (/api/auth)

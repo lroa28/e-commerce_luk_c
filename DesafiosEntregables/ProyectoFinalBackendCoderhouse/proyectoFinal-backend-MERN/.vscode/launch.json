@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/Users/lucreciaroa/Documents/CoderHouse/BackEnd/e-commerce_luk_c/DesafiosEntregables/ProyectoFinalBackendCoderhouse",
+            
+            "env":{
+                "MONGO_USER":"lroa_luk_c" ,
+                "MONGO_PWD": "luka2107" ,
+                "MONGO_DATABASE": "ProyectoFinalBackendCoderhouse",
+                "PORT": "8080",
+                "URLMONGO": "mongodb+srv://lroa_luk_c:luka2107@cluster0.cjnbo.mongodb.net/?retryWrites=true&w=majority",
+                "FIREBASE": "lukc-ecarrito-npx.firebaseapp.com"
+            }
+        }
+    ]
+}
